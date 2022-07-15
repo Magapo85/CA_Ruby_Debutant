@@ -17,12 +17,11 @@ x = '2'
 y = x + 'n'
 puts y
 
-def self.two_fer(name=gets)#nil)
+def self.two_fer(name=gets.chomp)#nil)
     #puts name.inspect
-    name=name.chomp
+    #name=name.chomp
     #puts name.inspect
     #puts name.empty?#blank?
-    #name.empty? ? name="you" : name
     #puts name
     puts "One for #{name.empty? ? name="you" : name}, one for me."
     puts "One for %s, one for me." % name
@@ -39,4 +38,26 @@ def preparation_time_in_minutes(layers)
 end
 def total_time_in_minutes(number_of_layers:, actual_minutes_in_oven:)
     preparation_time_in_minutes(number_of_layers) + actual_minutes_in_oven
+end
+
+=begin
++ for addition
+- for subtraction
+* for multiplication
+/ for division
+** is used for exponents power
+% is modulo
+=end
+
+numberOne = 6
+numberTwo = 8
+numberThree = 5
+numberFour = 12
+numberFive = 36
+
+testOne = numberTwo * numberThree #fill in the blank to make this 40
+testTwo = numberFive % numberOne #fill in the blank to make this 0
+testThree = numberFour - numberThree #fill in the blank to make this 7
+if testOne == 40 && testTwo == 0 && testThree == 7
+    puts true
 end
