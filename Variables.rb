@@ -61,3 +61,21 @@ testThree = numberFour - numberThree #fill in the blank to make this 7
 if testOne == 40 && testTwo == 0 && testThree == 7
     puts true
 end
+
+myFirstString = 'I am a string!' #single quotes
+mySecondString = "Me too!" #double quotes
+"Hi!".length #is 3
+"Hi!".reverse #is !iH
+"Hi!".upcase #is HI!
+"Hi!".downcase #is hi!
+"Hi!".downcase.reverse #is !ih
+"Happy Birthday!".include?("Happy") #is true
+myString = "Hi! I am code!" #In the next line, use methods to change it.
+myNewString = myString.downcase.reverse
+puts myNewString
+
+myArray = []  # an empty array
+myOtherArray = [1, 2, 3]  # an array with three elements
+myOtherArray[3] = 4
+myArray = ["Not me!", "Not me!", "Me!", "Not me!"]
+puts myArray[2]
