@@ -46,27 +46,30 @@ puts list
 puts list.enum_for(:each)
 
 class Bst
-  attr_reader :data, :left, :right
-  #attr_accessor :left=[], :right=[]
+  @left = []
+  @right = []
+  attr_reader :data#, :left=[], :right=[]
   
   def initialize(data)
     @data = data
     puts "Data centered : #{@data}"
   end
-  def insert(data)
+  def add(data)
     data > @data ? go_right(data) : go_left(data)
   end
   def go_right(data)
-    @right ? @right.insert(data) : @right = Bst.new(data)
+    self.@right << :data
+    #@right ? @right.insert(data) : @right = Bst.new(data)
     puts "Right : #{@right}"
   end
   def go_left(data)
-    @left ? @left.insert(data) : @left = Bst.new(data)
+    self.@left << :data
+    #@left ? @left.insert(data) : @left = Bst.new(data)
     puts "Left : #{@left}"
   end
   def each(&block)
     puts "debut each"
-    return puts "Right : #{@right} et left : #{@left} test enum_for(:each)" unless block_given?
+    return puts "Right : #{right} et left : #{left} test enum_for(:each)" unless block_given?
     @left.each(&block) if @left
     block.call(data) if @data
     @right.each(&block) if @right
@@ -78,8 +81,8 @@ class Bst
 end
 
 Bst.new(5)
-Bst.new(5).insert(4)
-Bst.new(5).insert(2)
-Bst.new(5).insert(6)
-Bst.new(5).insert(7)
+Bst.new(5).add(4)
+Bst.new(5).add(2)
+Bst.new(5).add(6)
+Bst.new(5).add(7)
 Bst.new(5).each()
