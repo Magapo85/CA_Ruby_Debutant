@@ -48,31 +48,46 @@ puts list.enum_for(:each)
 class Bst
   @left = []
   @right = []
-  attr_reader :data#, :left=[], :right=[]
+  @center = 0
+  #attr_reader :data#, :left=[], :right=[]
   
   def initialize(data)
-    @data = data
-    puts "Data centered : #{@data}"
+    @center = data
+    puts "Data centered : #{@center}"
+  end
+  def self.left
+    @left
+  end
+  def left
+    self.class.left
+  end
+  def self.right
+    @right
+  end
+  def right
+    self.class.right
   end
   def add(data)
-    data > @data ? go_right(data) : go_left(data)
+    puts "#{data} > ou < #{@center}"
+    data > @center ? go_right(data) : go_left(data)
   end
   def go_right(data)
-    self.@right << :data
+    right.insert(0, data)
     #@right ? @right.insert(data) : @right = Bst.new(data)
     puts "Right : #{@right}"
   end
   def go_left(data)
-    self.@left << :data
+    puts @left
+    left.insert(0, data)
     #@left ? @left.insert(data) : @left = Bst.new(data)
     puts "Left : #{@left}"
   end
   def each(&block)
     puts "debut each"
     return puts "Right : #{right} et left : #{left} test enum_for(:each)" unless block_given?
-    @left.each(&block) if @left
-    block.call(data) if @data
-    @right.each(&block) if @right
+    #@left.each(&block) if @left
+    #block.call(data) if @data
+    #@right.each(&block) if @right
     #@left&.each(&block)
     #yield @data
     #@right&.each(&block)
@@ -80,9 +95,9 @@ class Bst
   end
 end
 
-Bst.new(5)
-Bst.new(5).add(4)
-Bst.new(5).add(2)
-Bst.new(5).add(6)
-Bst.new(5).add(7)
-Bst.new(5).each()
+test = Bst.new(5)
+test.add(4)
+test.add(2)
+test.add(6)
+test.add(7)
+test.each()
